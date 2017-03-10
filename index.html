@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+     <head>
+		<title>My JS calculator</title>
+		<link rel="stylesheet" href="style.css" />
+		<script src="JS Calculator/script.js"></script>
+                 <script language='JavaScript'></script>
+    </head>
+<body>
+
+<form Name= "Calculator">
+
+
+<td><input name="Display" type = "text" onChange= "FixCurrent()"></td><br>
+<table>
+<tr>
+<td><input  type=button value="1" OnClick="AddDigit('1')"></td>
+<td><input  type=button value="2" OnClick="AddDigit('2')"></td>
+<td><input  type=button value="3" OnClick="AddDigit('3')"></td>
+<td><input  type=button value="+" OnClick="Operate()"></td>
+</tr><br>
+<tr>
+<td><input  type=button value="4" OnClick="AddDigit('4')"></td>
+<td><input  type=button value="5" OnClick="AddDigit('5')"></td>
+<td><input  type=button value="6" OnClick="AddDigit('6')"></td>
+<td><input  type=button value="-" OnClick="Operate()"></td>
+</tr><br>
+<tr>
+<td><input  type=button value="7" OnClick="AddDigit('7')"></td>
+<td><input  type=button value="8" OnClick="AddDigit('8')"></td>
+<td><input  type=button value="9" OnClick="AddDigit('9')"></td>
+<td><input  type=button value="*" OnClick="Operate()"></td>
+</tr><br>
+<tr>
+<td><input  type=button value="0" OnClick="AddDigit('0')"></td>
+<td><input  type=button value="=" OnClick="Calculate()"></td>
+<td><input  type=button value="C" OnClick="Clear()"></td>
+<td><input  type=button value="/" OnClick="Operate()"></td>
+</tr>
+<tr>
+<td><input  type=button value="." OnClick="Dot()"></td>
+</tr>
+</table>
+
+
+	</form>
+	</body>
+</html>
