@@ -1,84 +1,128 @@
-var Memeory = "0"; //previous digit selected
-var Current = "0"; //current digit selected
-var Operation = 0; 
-const MaxLength = 10; //max length of digits enter is 10
+var firstNum = 0;
+var secondNum = 0;
+var currentEntry = 0;
+var answer = 0;
+var process = 0;
+var operatorClicked = false;
 
 
-function AddDigit(dig)
-{if (Current.length > MaxLength)
-       { Current = "For something that big you need a better calculator dude!";
-       } else
-       { if ((eval(Current) == 0)
-              && (Current.indexOf(".") == -1)
-            )
-           { Current = dig;
-           } else
-           { Current = Current + dig;
-           };
-    }; 
-  };
-   document.Calculator.Display.value = Current;
- }
+function AddDigit(num) { 
 
+         currentEntry = num; //set the current entry to the number passed to the function from the button
 
+         if (operatorClicked  = true){ // if the operator (+, -, /, *) is clicked set the second number, i.e click first number store it, click operator, reset current entry, click second number and store that.
 
-function Dot()
-{
-  if(Current.length == 0)
-   {Current = "0.";
-   }else
-   {if (Current.indexOf(".") == -1)
-       { Current = Current + ".";
-       };
-     };
-  document.Calculator.Display.value = Current;
+              SetSecondNumber(currentEntry);
+
+           }else{
+
+                 SetFirstNumber(currentEntry);
+                
+                }
+
 }
+        
 
-function Clear()
-{ Current = "0";
-  Operation = 0;
-  Memory = "0";
-  document.Calculator.Display.value = Current;
+function SetFirstNumber(currentEntry){
+
+
+//set the current entry to the first number and display it in the textfield and on a label
+
+         console.log('first number is ' + currentEntry);
+         document.getElementById('Display').value = currentEntry;
+         firstNum = currentEntry;
+         document.getElementById('calculation').innerHTML = firstNum;
+          
 }
 
 
 
-function Operate(op)
-{
- if (op.indexOf("*") > -1){Operation = 1;};
- if (op.indexOf("/") > -1){Operation = 2;};
- if (op.indexOf("+") > -1){Operation = 3;};
- if (op.indexOf("-") > -1){Operation = 4;};
 
-Memory = Current;
-Current ="";
-document.Calculate.Disaply.value = Current;
+function SetSecondNumber(currentEntry){
+
+//set the current entry to the second number and display it in the textfield and on a label
+
+         document.getElementById('Display').value = currentEntry;
+         console.log('second number is ' + currentEntry);
+         secondNum = currentEntry;
+         document.getElementById('calculation').innerHTML = secondNum;
+        
+}
+
+
+
+function Operation(process){
+
+      operatorClicked  == true;
+      console.log('operator clicked');
+
+
+
+currentEntry = 0; 
+console.log('current entry reset');
+
+
+document.getElementById('Display').value += process;
+
+if (process == '+'){
+
+document.getElementById('calculation').innerHTML += process;
+ answer = firstNum + secondNum;
+
+return answer;
+
+}else if(process == '-'){
+
+document.getElementById('calculation').innerHTML += process;
+answer = firstNum - secondNum;
+
+return answer;
+
+}else if(process == '*'){
+
+document.getElementById('calculation').innerHTML += process;
+answer = firstNum * secondNum;
+
+return answer;
+
+}else if(process == '/'){
+
+document.getElementById('calculation').innerHTML += process;
+answer = firstNum / secondNum;
+
+///return answer;
+}
+
 
 }
 
 
-function Calculate(){
- if (Operation == 1){ Current = eval(Memory) * eval(Current);};
- if (Operation == 2){ Current = eval(Memory) / eval(Current);};
- if (Operation == 3){ Current = eval(Memory) + eval(Current);};
- if (Operation == 4){ Current = eval(Memory) - eval(Current);};
 
-Operation = 0;
-Memory = "0";
-document.Calcualtor.Display.value = Current;
+
+
+
+
+function Total(answer){
+
+document.getElementById('Display').value = answer;
+document.getElementById('calculation').innerHTML = answer;
 
 }
 
 
-function FixCurrent(){
 
-Current = document.Calculator.Display.value;
-Current = "" + parseFloat(Current);
-if (current.indexOF("NaN") !=-1)
-  { Current = "Invalid entry";
-  };
-  document.Calculator.Display.value = Current;
+
+
+
+
+
+function Clear(){
+
+document.getElementById('Display').value = '';
+document.getElementById('calculation').innerHTML = '';
+firstNum.value = 0;
+secondNum.value = 0;
+answer.value = 0;
+operatorClicked = false;
+
 }
-
-
-//https://www.anaesthetist.com/mnm/javascript/calc.htm
